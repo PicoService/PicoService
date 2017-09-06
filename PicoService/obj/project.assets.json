@@ -2735,6 +2735,61 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "RabbitMQ.Client/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Console": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.Security": "4.0.0",
+          "System.Net.Sockets": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Reflection.TypeExtensions": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Thread": "4.0.0",
+          "System.Threading.Timer": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
+        }
+      },
+      "RawRabbit/1.10.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "RabbitMQ.Client": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/RawRabbit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/RawRabbit.dll": {}
+        }
+      },
+      "RawRabbit.vNext/1.10.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "1.0.0",
+          "Microsoft.Extensions.Logging": "1.0.0",
+          "RawRabbit": "1.10.3"
+        },
+        "compile": {
+          "lib/netstandard1.5/RawRabbit.vNext.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/RawRabbit.vNext.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -7555,6 +7610,39 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/4.1.0": {
+      "sha512": "kRSynszpUNVgklJWK211sWMPtTUufexmgXtOD90hsqgT9YLACL/cb3+SPbb6sy8MwweNt71TkQFjOVjX3B0NOQ==",
+      "type": "package",
+      "path": "rabbitmq.client/4.1.0",
+      "files": [
+        "RabbitMQ.Client.4.1.0.nupkg.sha512",
+        "RabbitMQ.Client.nuspec",
+        "lib/net451/RabbitMQ.Client.dll",
+        "lib/netstandard1.5/RabbitMQ.Client.dll"
+      ]
+    },
+    "RawRabbit/1.10.3": {
+      "sha512": "vEMGJRSRPLEeyfeJAFIRmQmcMz5aSdaKBai+BR7JunPim98JjpFK3YysVUo+/9PhGlDX9yTR0hn8Z5wlRX612A==",
+      "type": "package",
+      "path": "rawrabbit/1.10.3",
+      "files": [
+        "RawRabbit.1.10.3.nupkg.sha512",
+        "RawRabbit.nuspec",
+        "lib/net451/RawRabbit.dll",
+        "lib/netstandard1.5/RawRabbit.dll"
+      ]
+    },
+    "RawRabbit.vNext/1.10.3": {
+      "sha512": "9T0+961GcfkZ4DF3FqzvTbG2aqob//1eTnDxkoaHQR28ZnnxSE5okrX/8VFBWe2Klh5wy0unA+kPQWpIq6eIew==",
+      "type": "package",
+      "path": "rawrabbit.vnext/1.10.3",
+      "files": [
+        "RawRabbit.vNext.1.10.3.nupkg.sha512",
+        "RawRabbit.vNext.nuspec",
+        "lib/net451/RawRabbit.vNext.dll",
+        "lib/netstandard1.5/RawRabbit.vNext.dll"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -12529,7 +12617,9 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "RawRabbit >= 1.10.3",
+      "RawRabbit.vNext >= 1.10.3"
     ]
   },
   "packageFolders": {
@@ -12580,6 +12670,14 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "RawRabbit": {
+            "target": "Package",
+            "version": "1.10.3"
+          },
+          "RawRabbit.vNext": {
+            "target": "Package",
+            "version": "1.10.3"
           }
         },
         "imports": [
