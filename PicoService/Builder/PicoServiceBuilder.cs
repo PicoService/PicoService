@@ -11,13 +11,10 @@ namespace PicoService.Builder
         IBusPicoServiceBuilder
 	{
         IWebHostBuilder IPicoServiceBuilder.WebHostBuilder => _webHostBuilder;
-
 		IPicoServiceConfigurator IPicoServiceBuilder.Configurator => _configurator;
 
         private readonly IWebHostBuilder _webHostBuilder;
-
         private readonly IPicoServiceConfigurator _configurator;		
-
 
 		private PicoServiceBuilder(IWebHostBuilder webHostBuilder, IPicoServiceConfigurator configurator)
         {

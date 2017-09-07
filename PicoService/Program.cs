@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PicoService.Builder;
+using PicoService.Bus;
+using PicoService.Extensions;
+using PicoService.Extensions.Bus;
+using PicoService.Extensions.DependencyInjection;
+using PicoService.Extensions.Host;
 
 namespace PicoService
 {
@@ -14,7 +21,26 @@ namespace PicoService
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            //BuildWebHost(args).Run();
+
+            PicoServiceBuilder
+                .Create()
+                .UseCors("MyPolicy", options => options.AllowAnyHeader())
+                .UsePort(5000)
+                .ContinueConfiguration()
+                .UseAspNetCoreDI(services =>
+                {
+                    //services.AddTransient()
+                }).UseServiceBus(new ServiceBusConfiguration(), subscribeBus =>
+               {
+                    // subscribeBus.SubscribeToCommand<>();
+                    // subscribeBus.SubscribeToEvent<>();
+                })
+                .UseStartup<Startup>()
+                .Build()
+                .Run();
+                
+
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
